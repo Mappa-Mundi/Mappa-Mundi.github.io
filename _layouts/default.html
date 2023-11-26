@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+<html lang="en">
 
-{%- include head.html -%}
+<head>
+  <meta charset="UTF-8">
+  <title>Today in Music</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Lato:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/main.css">
+</head>
 
-<body>
-
-  {%- include header.html -%}
-
-    <div class="container page-content">
-      {{ content }}
-    </div>
-
+<body class="bg-black text-white">
+  {% include header.html %}
+  <main>
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
-{%- include footer.html -%}
-
 
 </html>
