@@ -369,11 +369,17 @@ document.addEventListener('DOMContentLoaded', function() {
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-.hero-description {
-    font-size: 1.1rem;
+.hero-badge {
+    display: inline-block;
+    background: rgba(219, 201, 176, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(219, 201, 176, 0.3);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
     margin-bottom: 2rem;
-    opacity: 0.8;
-    animation: fadeInUp 1s ease-out 0.3s both;
+    animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 .floating-icons {
@@ -431,77 +437,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 
-.feature-carousel {
-    background: linear-gradient(135deg, #f8f9fa 0%, #DBC9B0 100%);
+.about-card {
+    transition: all 0.3s ease;
+    border: none;
     border-radius: 15px;
-    padding: 3rem 2rem;
-    margin: 3rem 0;
-    border-left: 4px solid #B22222;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #f8f9fa 0%, #DBC9B0 100%);
 }
 
-.carousel-item {
-    text-align: center;
-    padding: 2rem;
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.carousel-item h3 {
-    color: #3D553D;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
-.carousel-item .lead {
-    color: #3D553D;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.carousel-item p {
-    color: #2a3a2a;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.carousel-item img {
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    margin: 1rem auto;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 50px;
-    height: 50px;
-    background: rgba(178, 34, 34, 0.8);
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.carousel-control-prev {
-    left: -25px;
-}
-
-.carousel-control-next {
-    right: -25px;
-}
-
-.carousel-indicators {
-    bottom: -40px;
-}
-
-.carousel-indicators li {
-    background-color: #B22222;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin: 0 5px;
-}
-
-.carousel-indicators .active {
-    background-color: #3D553D;
+.about-icon {
+    background: linear-gradient(135deg, #B22222 0%, #8B1A1A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .section-divider {
@@ -512,33 +466,26 @@ document.addEventListener('DOMContentLoaded', function() {
     opacity: 0.7;
 }
 
-.why-choose-card {
-    transition: all 0.3s ease;
-    border: none;
+.about-highlight {
+    background: linear-gradient(135deg, #f8f9fa 0%, #DBC9B0 100%);
     border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-left: 4px solid #B22222;
 }
 
-.why-choose-card:hover {
+.team-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.why-choose-icon {
-    background: linear-gradient(135deg, #B22222 0%, #8B1A1A 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.download-section {
-    background: linear-gradient(135deg, #3D553D 0%, #2a3a2a 100%);
-    color: white;
-    border-radius: 15px;
-    padding: 3rem 2rem;
-    margin: 3rem 0;
 }
 
 .btn-primary {
@@ -561,28 +508,12 @@ document.addEventListener('DOMContentLoaded', function() {
     border-color: #B22222;
 }
 
-@media (max-width: 991px) {
-    .hero-phone {
-        display: none;
-    }
-}
-
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
     }
     .hero-subtitle {
         font-size: 1.1rem;
-    }
-    .hero-description {
-        font-size: 1rem;
-    }
-    .floating-icon {
-        display: none;
-    }
-    .carousel-control-prev,
-    .carousel-control-next {
-        display: none;
     }
     .hero-content .btn {
         display: block;
@@ -593,143 +524,260 @@ document.addEventListener('DOMContentLoaded', function() {
     .hero-content .btn:last-child {
         margin-bottom: 0;
     }
+    .about-highlight {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    .about-highlight h2 {
+        font-size: 1.5rem;
+    }
+    .about-highlight .lead {
+        font-size: 1.1rem;
+    }
+    .about-page-image {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .about-highlight {
+        margin-bottom: 2rem;
+    }
+    .about-page-image {
+        margin-top: 1rem;
+    }
+    .row.align-items-center {
+        align-items: flex-start !important;
+    }
 }
 </style>
 
 <div class="hero-section">
     <div class="floating-icons">
-        <i class="fas fa-landmark floating-icon fa-2x"></i>
-        <i class="fas fa-castle floating-icon fa-2x"></i>
-        <i class="fas fa-map-marked-alt floating-icon fa-2x"></i>
+        <i class="fas fa-history floating-icon fa-2x"></i>
+        <i class="fas fa-globe floating-icon fa-2x"></i>
+        <i class="fas fa-users floating-icon fa-2x"></i>
     </div>
     
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 hero-content">
-                <h1 class="hero-title">Mappa Mundi</h1>
-                <p class="hero-subtitle">Find History in Your Path</p>
-                <p class="hero-description">Discover historically significant locations near you with our innovative mobile app. From ancient battlefields to majestic castles, explore the rich tapestry of history that surrounds you.</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-heart mr-2"></i>Our Story
+                </div>
+                <h1 class="hero-title">About Mappa Mundi</h1>
+                <p class="hero-subtitle">Connecting people with their historical heritage through innovative technology</p>
                 <div class="mt-4">
-                    <a href="/features.html" class="btn btn-light btn-lg mr-3">
-                        <i class="fas fa-compass mr-2"></i>Explore Features
+                    <a href="#about" class="btn btn-light btn-lg mr-3">
+                        <i class="fas fa-book mr-2"></i>Learn More
                     </a>
                     <a href="https://apps.apple.com/us/app/mappa-mundi/id6451006755" class="btn btn-outline-light btn-lg">
-                        <i class="fab fa-apple mr-2"></i>Download Now
+                        <i class="fab fa-apple mr-2"></i>Download App
                     </a>
                 </div>
-            </div>
-            <div class="col-lg-6 text-center hero-phone">
-                <img class="img-fluid screenshot" src="assets/images/screenshot.png" alt="Mappa Mundi mobile app screenshot showing historical locations map" style="max-width: 300px; animation: fadeInUp 1s ease-out 0.5s both;">
             </div>
         </div>
     </div>
 </div>
 
-<div class="container page-content">
-    <!-- Feature Carousel -->
-    <div class="feature-carousel">
-        <div id="featureCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#featureCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#featureCarousel" data-slide-to="1"></li>
-                <li data-target="#featureCarousel" data-slide-to="2"></li>
-                <li data-target="#featureCarousel" data-slide-to="3"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <h3><i class="fas fa-landmark mr-3" style="color: #B22222;"></i>Historic Buildings</h3>
-                    <p class="lead">View historic buildings across thousands of towns and cities, anywhere in the United States</p>
-                    <p>Explore architectural marvels from different eras, from colonial structures to Art Deco masterpieces. Learn about the stories behind these buildings and their significance in shaping local communities.</p>
-                    <img src="assets/images/building-screenshot.png" alt="Mappa Mundi app showing historic buildings feature" class="img-fluid">
-                </div>
-                <div class="carousel-item">
-                    <h3><i class="fas fa-chess-king mr-3" style="color: #B22222;"></i>Forts and Castles</h3>
-                    <p class="lead">Always know the safest location to hide from marauders and vikings with castles and historic fort locations in both Europe and the United States</p>
-                    <p>Discover medieval castles, military forts, and defensive structures that once protected communities. Learn about their strategic importance and the historical events that shaped their construction.</p>
-                    <img src="assets/images/castle-screenshot.png" alt="Mappa Mundi app showing castles and forts feature" class="img-fluid">
-                </div>
-                <div class="carousel-item">
-                    <h3><i class="fas fa-crosshairs mr-3" style="color: #B22222;"></i>Battles</h3>
-                    <p class="lead">Step foot upon the battlefields that shaped the course of history</p>
-                    <p>Walk in the footsteps of soldiers and commanders who fought in pivotal battles. Understand the strategies, outcomes, and lasting impact of these historical conflicts on modern society.</p>
-                    <img src="assets/images/battle-screenshot.png" alt="Mappa Mundi app showing battlefields feature" class="img-fluid">
-                </div>
-                <div class="carousel-item">
-                    <h3><i class="fas fa-map-marker-alt mr-3" style="color: #B22222;"></i>Local Markers</h3>
-                    <p class="lead">Immerse yourself in local history and culture with region specific markers</p>
-                    <p>Discover hidden gems and local landmarks that tell the unique story of your community. From historical plaques to cultural sites, uncover the rich heritage that makes each location special.</p>
-                    <img src="assets/images/local-screenshot.png" alt="Mappa Mundi app showing local historical markers feature" class="img-fluid">
-                </div>
+<div class="container page-content" id="about">
+    <!-- Our Story -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-md-6">
+            <div class="about-highlight">
+                <h2 class="mb-4">
+                    <i class="fas fa-history about-icon mr-3"></i>
+                    Our Story
+                </h2>
+                <p class="lead mb-3">Mappa Mundi was born from a simple yet powerful idea: what if we could make history accessible, engaging, and personal?</p>
+                <p>The name "Mappa Mundi" comes from the Latin phrase meaning "map of the world," reflecting our mission to map and preserve the world's historical heritage for future generations.</p>
+                <p>Founded by Ian Haynes, a passionate history enthusiast and software engineer, Mappa Mundi combines cutting-edge technology with a deep appreciation for historical preservation. Ian's dual passions for historical exploration and technological innovation drove him to create a platform that effectively intertwines the threads of time and space.</p>
+                <p>What started as a personal project has grown into a comprehensive platform that helps thousands of users discover the rich historical tapestry that surrounds them every day.</p>
             </div>
-            <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        </div>
+        <div class="col-md-6">
+            <img src="assets/images/MappaMundiLogo.png" alt="Mappa Mundi Logo" class="img-fluid rounded shadow about-page-image">
         </div>
     </div>
 
     <div class="section-divider"></div>
 
-    <!-- Why Choose Mappa Mundi -->
+    <!-- Our Mission -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-md-6 order-md-2">
+            <div class="about-highlight">
+                <h2 class="mb-4">
+                    <i class="fas fa-bullseye about-icon mr-3"></i>
+                    Our Mission
+                </h2>
+                <p class="lead mb-3">At Mappa Mundi, we believe that history is not just found in textbooks, but all around us.</p>
+                <p>Our mission is to make historical discovery accessible, engaging, and personal. We aim to transform the way people perceive and interact with their surroundings by connecting them with the historical sites in their vicinity.</p>
+                <p>We strive to:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Preserve History:</strong> Document and preserve historical locations for future generations</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Educate:</strong> Make historical learning engaging and interactive</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Connect:</strong> Help people develop a deeper connection with their local and global heritage</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Inspire:</strong> Encourage exploration and curiosity about the past</li>
+                </ul>
+                <p class="mt-3">By placing historical events geographically and offering an immersive narrative experience, we hope to foster a deeper understanding and appreciation for the rich tapestry of human history.</p>
+            </div>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <img src="assets/images/mission-image.png" alt="Mappa Mundi Mission" class="img-fluid rounded shadow about-page-image">
+        </div>
+    </div>
+
+    <!-- Our Values -->
     <div class="row mb-5">
         <div class="col-12 text-center">
             <h2 class="mb-4">
-                <i class="fas fa-star why-choose-icon mr-3"></i>
-                Why Choose Mappa Mundi?
+                <i class="fas fa-star about-icon mr-3"></i>
+                Our Values
             </h2>
-            <p class="lead">Your gateway to historical discovery</p>
+            <p class="lead">The principles that guide everything we do</p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-4 mb-4">
-            <div class="why-choose-card h-100">
+            <div class="about-card">
                 <div class="card-body text-center">
-                    <i class="fas fa-map-marked-alt fa-3x why-choose-icon mb-3"></i>
-                    <h3 class="card-title">Comprehensive Database</h3>
-                    <p class="card-text">Access thousands of historical locations across the United States and Europe, with detailed information about each site.</p>
+                    <i class="fas fa-shield-alt fa-3x about-icon mb-3"></i>
+                    <h3 class="card-title">Accuracy</h3>
+                    <p class="card-text">We are committed to providing accurate, well-researched historical information. Every location in our database is carefully verified and sourced from reliable historical records.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-4">
-            <div class="why-choose-card h-100">
+            <div class="about-card">
                 <div class="card-body text-center">
-                    <i class="fas fa-mobile-alt fa-3x why-choose-icon mb-3"></i>
-                    <h3 class="card-title">Mobile-First Design</h3>
-                    <p class="card-text">Optimized for mobile devices, making it easy to discover historical sites while on the go or planning your next adventure.</p>
+                    <i class="fas fa-users fa-3x about-icon mb-3"></i>
+                    <h3 class="card-title">Accessibility</h3>
+                    <p class="card-text">We believe that historical knowledge should be accessible to everyone. Our app is designed to be user-friendly and available to people of all ages and backgrounds.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-4">
-            <div class="why-choose-card h-100">
+            <div class="about-card">
                 <div class="card-body text-center">
-                    <i class="fas fa-book-open fa-3x why-choose-icon mb-3"></i>
-                    <h3 class="card-title">Rich Historical Content</h3>
-                    <p class="card-text">Learn about the fascinating stories, events, and people that shaped these historical locations.</p>
+                    <i class="fas fa-leaf fa-3x about-icon mb-3"></i>
+                    <h3 class="card-title">Preservation</h3>
+                    <p class="card-text">We are dedicated to preserving historical knowledge and locations. By documenting these sites, we help ensure that important historical information is not lost to time.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Download Section -->
-    <div class="download-section text-center">
-        <h2 class="display-4 font-weight-normal mb-3">Download Now</h2>
-        <p class="lead mb-4">Start your historical journey today with Mappa Mundi</p>
-        <p class="mb-4">Available for both iOS and Android devices. Download now and begin exploring the rich history that surrounds you.</p>
-        <div class="d-flex justify-content-center flex-wrap">
-            <a href="https://play.google.com/store/apps/details?id=com.maps.mappa_mundi_mapbox" class="mx-2 mb-2">
-                <img alt="Get it on Google Play" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website_v2/global/play-store-badge-487435ce8352b7ab5a189bdfb3a2eac1196e504ac0c5bf467293b5d75fb09b6d.png" style="height: 60px;">
-            </a>
-            <a href="https://apps.apple.com/us/app/mappa-mundi/id6451006755" class="mx-2 mb-2">
-                <img alt="Download on the App Store" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website_v2/global/app-store-badge-93cbd8991fcab9bc6a50d3cb78fc1c24340d42af78023005e9ad3fd40445f8e1.png" style="height: 60px;">
-            </a>
+    <div class="section-divider"></div>
+
+    <!-- The Team -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h2 class="mb-4">
+                <i class="fas fa-users about-icon mr-3"></i>
+                Meet the Team
+            </h2>
+            <p class="lead">The passionate individuals behind Mappa Mundi</p>
         </div>
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="team-card">
+                <h3 class="card-title">Ian Haynes</h3>
+                <p class="text-muted">Founder & Lead Developer</p>
+                <p class="card-text">A fervent history aficionado and software engineer, Ian combines his passion for historical exploration with technological innovation. His vision for Mappa Mundi was to create a platform that makes history accessible and engaging for everyone.</p>
+                <p class="card-text">With expertise in mobile app development and a deep appreciation for historical preservation, Ian leads the development of Mappa Mundi's features and ensures the platform continues to grow and improve.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Technology -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-md-6">
+            <div class="about-highlight">
+                <h2 class="mb-4">
+                    <i class="fas fa-cogs about-icon mr-3"></i>
+                    Our Technology
+                </h2>
+                <p class="lead mb-3">Mappa Mundi leverages cutting-edge technology to provide users with an exceptional historical discovery experience.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Advanced Mapping:</strong> High-quality maps with precise location data</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Comprehensive Database:</strong> Extensive collection of historical sites and information</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Mobile Optimization:</strong> Designed specifically for mobile devices and on-the-go exploration</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Offline Capabilities:</strong> Access historical information even without internet connectivity</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Regular Updates:</strong> Continuous improvements and new location additions</li>
+                </ul>
+                <p class="mt-3">Our technology stack is designed to be reliable, fast, and user-friendly, ensuring that users can focus on discovering history rather than dealing with technical issues.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="assets/images/SmartPhoneMockup.png" alt="Mappa Mundi Mobile App" class="img-fluid rounded shadow about-page-image">
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Future Vision -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-md-6 order-md-2">
+            <div class="about-highlight">
+                <h2 class="mb-4">
+                    <i class="fas fa-rocket about-icon mr-3"></i>
+                    Our Vision for the Future
+                </h2>
+                <p class="lead mb-3">As we look to the future, Mappa Mundi aims to become the world's most comprehensive platform for historical discovery.</p>
+                <p>Our vision includes:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Global Expansion:</strong> Expanding our database to include historical sites from around the world</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Enhanced Features:</strong> Adding virtual reality experiences, augmented reality overlays, and interactive historical reenactments</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Community Features:</strong> Allowing users to contribute their own historical discoveries and stories</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Educational Partnerships:</strong> Collaborating with schools, museums, and historical societies</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success mr-2"></i><strong>Preservation Initiatives:</strong> Supporting efforts to preserve and protect historical sites</li>
+                </ul>
+                <p class="mt-3">We believe that by making history more accessible and engaging, we can inspire a new generation of history enthusiasts and help preserve our shared heritage for future generations.</p>
+            </div>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <img src="assets/images/screenshot.png" alt="Mappa Mundi Future Vision" class="img-fluid rounded shadow about-page-image">
+        </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="about-highlight">
+                <h2>
+                    <i class="fas fa-envelope about-icon mr-3"></i>
+                    Get in Touch
+                </h2>
+                <p class="lead">We'd love to hear from you</p>
+                <p>Have questions, suggestions, or want to learn more about Mappa Mundi? We're always happy to connect with history enthusiasts, educators, and anyone interested in preserving our historical heritage.</p>
+                <p>For support, feedback, or partnership opportunities, please reach out to us through our app stores or social media channels.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <div class="about-highlight">
+                <h2>Join the Mappa Mundi Community</h2>
+                <p class="lead mb-4">Start your historical journey today and become part of our growing community of history enthusiasts.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="https://play.google.com/store/apps/details?id=com.maps.mappa_mundi_mapbox" class="mx-2">
+                        <img alt="Get it on Google Play" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website_v2/global/play-store-badge-487435ce8352b7ab5a189bdfb3a2eac1196e504ac0c5bf467293b5d75fb09b6d.png" style="height: 60px;">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/mappa-mundi/id6451006755" class="mx-2">
+                        <img alt="Download on the App Store" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website_v2/global/app-store-badge-93cbd8991fcab9bc6a50d3cb78fc1c24340d42af78023005e9ad3fd40445f8e1.png" style="height: 60px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
     </div>
 
 </body><style>

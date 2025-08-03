@@ -16,9 +16,14 @@
 title: Mappa Mundi
 email: ""
 description: >- # this means to ignore newlines until "baseurl:"
-  Mappa Mundi site
-#baseurl: "" # the subpath of your site, e.g. /blog
-#url: "" # the base hostname & protocol for your site, e.g. http://example.com
+  Discover historically significant locations near you with Mappa Mundi. Find historic buildings, battlefields, castles, forts, and local markers across the United States and Europe. Download our mobile app for iOS and Android.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://mappamundi.us" # the base hostname & protocol for your site, e.g. http://example.com
+
+# SEO Settings
+author: Ian Haynes
+keywords: historical locations, historic buildings, battlefields, castles, forts, local history, historical discovery app, history app, mobile app, iOS, Android, United States, Europe
+lang: en_US
 
 repository: "Mappa-Mundi/Mappa-Mundi.github.io"
 
@@ -26,6 +31,27 @@ repository: "Mappa-Mundi/Mappa-Mundi.github.io"
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Sitemap configuration
+sitemap:
+  exclude:
+    - /assets/
+    - /_layouts/
+    - /_includes/
+    - /_sass/
+    - /_site/
+    - /node_modules/
+    - /Gemfile*
+    - /package*.json
+    - /update_boostrap.sh
+  include:
+    - /features.html
+    - /about.html
+    - /privacy-policy.html
+    - /end-user-license-agreement.html
+  changefreq: weekly
+  priority: 0.8
 
 # A list of the pages to display in the navigation bar
 header_pages:
