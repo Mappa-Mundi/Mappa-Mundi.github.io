@@ -25,3 +25,104 @@
 .screenshot {
     border-radius: 21px;
 }
+
+/* Blog-specific responsive styles */
+@media (max-width: 576px) {
+    .blog-hero-section {
+        padding: 1.5rem 0 !important;
+    }
+    
+    .blog-hero-section h1 {
+        font-size: 1.75rem !important;
+    }
+    
+    .blog-hero-section .lead {
+        font-size: 1rem !important;
+    }
+    
+    .blog-filters {
+        padding: 1rem 0 !important;
+        margin: 1rem !important;
+        border-radius: 8px !important;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 0 1rem !important;
+    }
+    
+    .post-card-image {
+        height: 200px !important;
+    }
+    
+    .blog-post {
+        margin: 1rem auto !important;
+        padding: 0 0.5rem !important;
+    }
+    
+    .blog-content {
+        padding: 1rem !important;
+        margin: 0.5rem 0 !important;
+    }
+    
+    .blog-sidebar {
+        margin: 1rem !important;
+        padding: 1rem !important;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .posts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    }
+    
+    .blog-layout {
+        padding: 0 1rem !important;
+    }
+}
+
+/* Enhanced accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .post-card,
+    .filter-btn,
+    .blog-nav-link,
+    .sticky-cta {
+        transition: none !important;
+    }
+    
+    .post-card:hover {
+        transform: none !important;
+    }
+}
+
+/* Print styles for blog content */
+@media print {
+    .blog-hero-section,
+    .blog-filters,
+    .blog-sidebar,
+    .sticky-cta,
+    .blog-navigation {
+        display: none !important;
+    }
+    
+    .blog-content {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        background: white !important;
+    }
+    
+    .blog-content img {
+        max-width: 100% !important;
+        page-break-inside: avoid !important;
+    }
+    
+    .blog-content h2 {
+        page-break-after: avoid !important;
+    }
+}

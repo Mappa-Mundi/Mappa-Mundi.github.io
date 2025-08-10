@@ -7,19 +7,74 @@
   <meta name="geo.placename" content="United States">
   
   <!-- Primary Meta Tags -->
+  {% if page.seo_title %}
+  <title>{{ page.seo_title }}</title>
+  <meta name="title" content="{{ page.seo_title }}">
+  {% elsif page.title %}
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="title" content="{{ page.title }} | {{ site.title }}">
+  {% else %}
   <title>Mappa Mundi - Find Historic Locations Near You | Historical Discovery App</title>
   <meta name="title" content="Mappa Mundi - Find Historic Locations Near You | Historical Discovery App">
-  <meta name="description" content="Discover historically significant locations near you with Mappa Mundi. Find historic buildings, battlefields, castles, forts, and local markers across the United States and Europe. Download our mobile app for iOS and Android.">
-  <meta name="keywords" content="historical locations, historic buildings, battlefields, castles, forts, local history, historical discovery app, history app, mobile app, iOS, Android, United States, Europe, historical sites, heritage, cultural landmarks, historical markers, ancient sites, medieval castles, military forts, revolutionary war sites, civil war battlefields">
+  {% endif %}
+  
+  {% if page.meta_description %}
+  <meta name="description" content="{{ page.meta_description }}">
+  {% elsif page.excerpt %}
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}">
+  {% else %}
+  <meta name="description" content="Discover historically significant locations near you with Mappa Mundi. Find historic buildings, battlefields, castles, forts, and local markers across the United States and Europe. Download our mobile app for iOS.">
+  {% endif %}
+  
+  {% if page.keywords %}
+  <meta name="keywords" content="{{ page.keywords }}, {{ site.keywords }}">
+  {% elsif page.tags %}
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}, {{ site.keywords }}">
+  {% else %}
+  <meta name="keywords" content="historical locations, historic buildings, battlefields, castles, forts, local history, historical discovery app, history app, mobile app, iOS, United States, Europe, historical sites, heritage, cultural landmarks, historical markers, ancient sites, medieval castles, military forts, revolutionary war sites, civil war battlefields">
+  {% endif %}
+  
+  {% if page.author %}
+  <meta name="author" content="{{ page.author }}">
+  {% else %}
   <meta name="author" content="Ian Haynes">
+  {% endif %}
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   
   <!-- Open Graph / Facebook -->
+  {% if page.layout == 'post' %}
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="{{ page.author | default: site.author }}">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% if page.tags %}
+  {% for tag in page.tags %}
+  <meta property="article:tag" content="{{ tag }}">
+  {% endfor %}
+  {% endif %}
+  {% else %}
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mappamundi.us/">
+  {% endif %}
+  
+  <meta property="og:url" content="{{ site.url }}{{ page.url | default: '/' }}">
+  {% if page.title %}
+  <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+  {% else %}
   <meta property="og:title" content="Mappa Mundi - Find Historic Locations Near You">
+  {% endif %}
+  
+  {% if page.meta_description %}
+  <meta property="og:description" content="{{ page.meta_description }}">
+  {% elsif page.excerpt %}
+  <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}">
+  {% else %}
   <meta property="og:description" content="Discover historically significant locations near you with Mappa Mundi. Find historic buildings, battlefields, castles, forts, and local markers across the United States and Europe.">
+  {% endif %}
+  
+  {% if page.image %}
+  <meta property="og:image" content="{{ site.url }}{{ page.image }}">
+  {% else %}
   <meta property="og:image" content="https://mappamundi.us/assets/images/MappaMundiLogo.png">
+  {% endif %}
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Mappa Mundi">
@@ -27,13 +82,29 @@
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://mappamundi.us/">
+  <meta property="twitter:url" content="{{ site.url }}{{ page.url | default: '/' }}">
+  {% if page.title %}
+  <meta property="twitter:title" content="{{ page.title }} | {{ site.title }}">
+  {% else %}
   <meta property="twitter:title" content="Mappa Mundi - Find Historic Locations Near You">
+  {% endif %}
+  
+  {% if page.meta_description %}
+  <meta property="twitter:description" content="{{ page.meta_description }}">
+  {% elsif page.excerpt %}
+  <meta property="twitter:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}">
+  {% else %}
   <meta property="twitter:description" content="Discover historically significant locations near you with Mappa Mundi. Find historic buildings, battlefields, castles, forts, and local markers.">
+  {% endif %}
+  
+  {% if page.image %}
+  <meta property="twitter:image" content="{{ site.url }}{{ page.image }}">
+  {% else %}
   <meta property="twitter:image" content="https://mappamundi.us/assets/images/MappaMundiLogo.png">
+  {% endif %}
   
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://mappamundi.us/" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url | default: '/' }}" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -50,7 +121,7 @@
     "description": "A mobile app that helps users discover historically significant locations near them, including historic buildings, battlefields, castles, forts, and local markers across the United States and Europe.",
     "url": "https://mappamundi.us",
     "applicationCategory": "TravelApplication",
-    "operatingSystem": "iOS, Android",
+    "operatingSystem": "iOS",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -73,7 +144,6 @@
       "https://mappamundi.us/assets/images/local-screenshot.png"
     ],
     "downloadUrl": [
-      "https://play.google.com/store/apps/details?id=com.maps.mappa_mundi_mapbox",
       "https://apps.apple.com/us/app/mappa-mundi/id6451006755"
     ]
   }
@@ -89,7 +159,6 @@
     "logo": "https://mappamundi.us/assets/images/MappaMundiLogo.png",
     "description": "Mobile app for discovering historically significant locations near you",
     "sameAs": [
-      "https://play.google.com/store/apps/details?id=com.maps.mappa_mundi_mapbox",
       "https://apps.apple.com/us/app/mappa-mundi/id6451006755"
     ],
     "contactPoint": {
@@ -123,7 +192,7 @@
     "@type": "SoftwareApplication",
     "name": "Mappa Mundi",
     "applicationCategory": "TravelApplication",
-    "operatingSystem": "iOS, Android",
+    "operatingSystem": "iOS",
     "description": "Discover historically significant locations near you with our mobile app",
     "offers": {
       "@type": "Offer",
@@ -131,7 +200,6 @@
       "priceCurrency": "USD"
     },
     "downloadUrl": [
-      "https://play.google.com/store/apps/details?id=com.maps.mappa_mundi_mapbox",
       "https://apps.apple.com/us/app/mappa-mundi/id6451006755"
     ]
   }

@@ -1,23 +1,452 @@
 ---
 layout: default
 ---
-<article>
 
-  <header>
-    <h1>{{ page.title | escape }}</h1>
-    <p class="text-muted">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {%- assign date_format = "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • {{ page.author }}
-      {%- endif -%}
-    </p>
-  </header>
+<style>
+.blog-post {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
 
-  <section>
-    {{ content }}
-  </section>
+.blog-hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3D553D 0%, #2a3a2a 100%);
+}
 
+.blog-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem;
+}
+
+.blog-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.blog-content {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.blog-content h2 {
+    color: #3D553D;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #DBC9B0;
+}
+
+.blog-content h3 {
+    color: #2a3a2a;
+    font-weight: 500;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+.blog-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blog-content blockquote {
+    background: #f8f9fa;
+    border-left: 4px solid #3D553D;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+}
+
+.blog-category {
+    display: inline-block;
+    background: linear-gradient(45deg, #3D553D, #2a3a2a);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.blog-tags {
+    margin: 1rem 0;
+}
+
+.blog-tag {
+    display: inline-block;
+    background: #DBC9B0;
+    color: #2a3a2a;
+    padding: 0.25rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    margin: 0.25rem 0.25rem 0.25rem 0;
+    text-decoration: none;
+}
+
+.blog-cta {
+    background: linear-gradient(135deg, #B22222 0%, #8B1F1F 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.blog-cta h3 {
+    margin: 0 0 1rem 0;
+    color: white;
+}
+
+.blog-cta p {
+    margin: 0 0 1.5rem 0;
+    opacity: 0.9;
+}
+
+.blog-cta .btn {
+    background: #ffffff;
+    color: #B22222;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.blog-cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    color: #B22222;
+    text-decoration: none;
+}
+
+.blog-sidebar {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.blog-sidebar h4 {
+    color: #3D553D;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #DBC9B0;
+}
+
+.blog-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog-sidebar li {
+    margin: 0.5rem 0;
+}
+
+.blog-sidebar a {
+    color: #2a3a2a;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.blog-sidebar a:hover {
+    color: #B22222;
+    text-decoration: none;
+}
+
+.blog-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    gap: 1rem;
+}
+
+.blog-nav-link {
+    flex: 1;
+    background: #ffffff;
+    border: 2px solid #DBC9B0;
+    border-radius: 8px;
+    padding: 1rem;
+    text-decoration: none;
+    color: #2a3a2a;
+    transition: all 0.3s ease;
+}
+
+.blog-nav-link:hover {
+    border-color: #3D553D;
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: #2a3a2a;
+}
+
+.blog-nav-link.next {
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .blog-hero {
+        height: 250px;
+    }
+    
+    .blog-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .blog-hero-overlay {
+        padding: 1rem;
+    }
+    
+    .blog-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .blog-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .blog-navigation {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 992px) {
+    .blog-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+}
+</style>
+
+<article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+  <!-- Hero Section -->
+  <div class="blog-hero">
+    {% if page.image %}
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" itemprop="image">
+    {% endif %}
+    <div class="blog-hero-overlay">
+      <h1 itemprop="headline">{{ page.title }}</h1>
+      <div class="blog-meta">
+        <span itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">
+          📅 {{ page.date | date: "%B %d, %Y" }}
+        </span>
+        {% if page.author %}
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+          👤 <span itemprop="name">{{ page.author }}</span>
+        </span>
+        {% endif %}
+        {% if page.category %}
+        <a href="/blog/category/{{ page.category | slugify }}/" class="blog-category">{{ page.category }}</a>
+        {% endif %}
+        <span>⏱️ {{ content | number_of_words | divided_by: 200 }} min read</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-layout">
+    <main class="blog-main">
+      <!-- Content -->
+      <div class="blog-content" itemprop="articleBody">
+        {{ content }}
+      </div>
+
+      <!-- Tags -->
+      {% if page.tags %}
+      <div class="blog-tags">
+        {% for tag in page.tags %}
+        <a href="/blog/tag/{{ tag | slugify }}/" class="blog-tag" itemprop="keywords">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Call to Action -->
+      <div class="blog-cta">
+        <h3>Explore Historic Sites Near You!</h3>
+        <p>Discover this historic location and thousands more with the Mappa Mundi app. Get detailed information, and photos about historical sites near you.</p>
+        <a href="https://apps.apple.com/app/mappa-mundi/id1234567890" class="btn" target="_blank" rel="noopener">
+          {% include apple-logo.svg %} Download for iOS
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="blog-navigation">
+        {% if page.previous.url %}
+        <a href="{{ page.previous.url | relative_url }}" class="blog-nav-link prev">
+          <small>← Previous Post</small><br>
+          <strong>{{ page.previous.title }}</strong>
+        </a>
+        {% else %}
+        <div></div>
+        {% endif %}
+        
+        {% if page.next.url %}
+        <a href="{{ page.next.url | relative_url }}" class="blog-nav-link next">
+          <small>Next Post →</small><br>
+          <strong>{{ page.next.title }}</strong>
+        </a>
+        {% endif %}
+      </nav>
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="blog-sidebar">
+      <!-- Search -->
+      <div class="sidebar-section">
+        <h4>🔍 Search Posts</h4>
+        <input type="text" id="blog-search" placeholder="Search articles..." 
+               style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 1rem;">
+        <div id="search-results"></div>
+      </div>
+
+      <!-- Recent Posts -->
+      <div class="sidebar-section">
+        <h4>📖 Recent Posts</h4>
+        <ul>
+          {% for post in site.posts limit:5 %}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="sidebar-section">
+        <h4>📂 Categories</h4>
+        <ul>
+          {% for category in site.blog_categories %}
+          <li><a href="/blog/category/{{ category.slug }}/">{{ category.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Popular Tags -->
+      <div class="sidebar-section">
+        <h4>🏷️ Popular Tags</h4>
+        <div>
+          {% assign sorted_tags = site.tags | sort %}
+          {% for tag in sorted_tags limit:10 %}
+          <a href="/blog/tag/{{ tag[0] | slugify }}/" class="blog-tag">{{ tag[0] }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </aside>
+  </div>
 </article>
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title }}",
+  "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}",
+  "image": "{{ site.url }}{{ page.image | default: '/assets/images/MappaMundiLogo.png' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: 'Mappa Mundi Team' }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/images/MappaMundiLogo.png"
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  },
+  "keywords": "{{ page.tags | join: ', ' }}, {{ site.keywords }}"
+}
+</script>
+
+<!-- Simple search functionality -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('blog-search');
+    const searchResults = document.getElementById('search-results');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            
+            if (query.length < 3) {
+                searchResults.innerHTML = '';
+                return;
+            }
+            
+            // Simple client-side search (you might want to implement a more sophisticated solution)
+            const posts = [
+                {% for post in site.posts %}
+                {
+                    title: {{ post.title | jsonify }},
+                    url: {{ post.url | relative_url | jsonify }},
+                    content: {{ post.content | strip_html | jsonify }}
+                }{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+            ];
+            
+            const results = posts.filter(post => 
+                post.title.toLowerCase().includes(query) || 
+                post.content.toLowerCase().includes(query)
+            ).slice(0, 5);
+            
+            if (results.length > 0) {
+                searchResults.innerHTML = '<ul>' + 
+                    results.map(post => `<li><a href="${post.url}">${post.title}</a></li>`).join('') + 
+                    '</ul>';
+            } else {
+                searchResults.innerHTML = '<p style="font-size: 0.9rem; color: #666;">No results found</p>';
+            }
+        });
+    }
+});
+</script>

@@ -16,22 +16,60 @@
 title: Mappa Mundi
 email: ""
 description: >- # this means to ignore newlines until "baseurl:"
-  Discover historically significant locations near you with Mappa Mundi. Find historic buildings, battlefields, castles, forts, and local markers across the United States and Europe. Download our mobile app for iOS and Android.
+  Discover historically significant locations near you with Mappa Mundi. Find historic buildings, battlefields, castles, forts, and local markers across the United States and Europe. Download our mobile app for iOS.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mappamundi.us" # the base hostname & protocol for your site, e.g. http://example.com
 
 # SEO Settings
 author: Ian Haynes
-keywords: historical locations, historic buildings, battlefields, castles, forts, local history, historical discovery app, history app, mobile app, iOS, Android, United States, Europe
+keywords: historical locations, historic buildings, battlefields, castles, forts, local history, historical discovery app, history app, mobile app, iOS, United States, Europe, historic landmarks, ancient ruins, historical walking tours
 lang: en_US
 
 repository: "Mappa-Mundi/Mappa-Mundi.github.io"
+
+# Blog Configuration
+permalink: /blog/:title/
+paginate: 6
+paginate_path: "/blog/page/:num/"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Mappa Mundi Team"
+      comments: false
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/MappaMundiLogo.png
 
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate
+
+# Blog Categories
+blog_categories:
+  - name: "Historic Spotlights"
+    slug: "historic-spotlights"
+    description: "Deep dives into individual historic sites and landmarks"
+  - name: "Travel History Guides"
+    slug: "travel-guides"
+    description: "City-specific historical walking and driving tours"
+  - name: "App Updates"
+    slug: "app-updates"
+    description: "New features, map expansions, and data partnerships"
 
 # Sitemap configuration
 sitemap:
@@ -50,6 +88,7 @@ sitemap:
     - /about.html
     - /privacy-policy.html
     - /end-user-license-agreement.html
+    - /blog/
   changefreq: weekly
   priority: 0.8
 

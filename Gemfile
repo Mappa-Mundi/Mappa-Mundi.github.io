@@ -15,5 +15,13 @@ source "https://rubygems.org"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 gem "github-pages", group: :jekyll_plugins
 
+# Jekyll plugins
+group :jekyll_plugins do
+  gem "jekyll-paginate"
+  gem "jekyll-sitemap"
+  gem "jekyll-seo-tag"
+  gem "jekyll-feed"
+end
+
 # Add webrick for Jekyll serve functionality
 gem "webrick", "~> 1.9"
