@@ -1,16 +1,20 @@
 User-agent: *
 Allow: /
 
+# Performance hints for search engines
+Crawl-delay: 1
+
 # Sitemap location
 Sitemap: https://mappamundi.us/sitemap.xml
 
-# Allow crawling of all content
-Allow: /assets/
-Allow: /_layouts/
-Allow: /_includes/
-
-# Disallow admin or private areas (if any)
+# Disallow unnecessary files
 Disallow: /_site/
-Disallow: /node_modules/
+Disallow: /_layouts/
+Disallow: /_includes/
+Disallow: /_sass/
+Disallow: /assets/images/original/
 Disallow: /Gemfile*
-Disallow: /package*.json 
+Disallow: /package*.json
+Disallow: /node_modules/
+Disallow: /update_bootstrap.sh
+Disallow: /optimize-images.sh 

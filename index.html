@@ -2,277 +2,6 @@
 layout: default
 ---
 
-<style>
-.hero-section {
-    background: linear-gradient(135deg, #3D553D 0%, #2a3a2a 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-    padding: 80px 0;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, #ffffff, #DBC9B0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: fadeInUp 1s ease-out;
-}
-
-.hero-subtitle {
-    font-size: 1.3rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    animation: fadeInUp 1s ease-out 0.2s both;
-}
-
-.hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-    animation: fadeInUp 1s ease-out 0.3s both;
-}
-
-.floating-icons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.floating-icon {
-    position: absolute;
-    opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
-    color: #DBC9B0;
-}
-
-.floating-icon:nth-child(1) {
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.floating-icon:nth-child(2) {
-    top: 60%;
-    right: 15%;
-    animation-delay: 2s;
-}
-
-.floating-icon:nth-child(3) {
-    bottom: 30%;
-    left: 20%;
-    animation-delay: 4s;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(5deg);
-    }
-}
-
-.feature-carousel {
-    background: linear-gradient(135deg, #f8f9fa 0%, #DBC9B0 100%);
-    border-radius: 15px;
-    padding: 3rem 2rem;
-    margin: 3rem 0;
-    border-left: 4px solid #B22222;
-}
-
-.carousel-item {
-    text-align: center;
-    padding: 2rem;
-}
-
-.carousel-item h3 {
-    color: #3D553D;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
-.carousel-item .lead {
-    color: #3D553D;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.carousel-item p {
-    color: #2a3a2a;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.carousel-item img {
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    margin: 1rem auto;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 50px;
-    height: 50px;
-    background: rgba(178, 34, 34, 0.8);
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.carousel-control-prev {
-    left: -25px;
-}
-
-.carousel-control-next {
-    right: -25px;
-}
-
-.carousel-indicators {
-    bottom: -40px;
-}
-
-.carousel-indicators li {
-    background-color: #B22222;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin: 0 5px;
-}
-
-.carousel-indicators .active {
-    background-color: #3D553D;
-}
-
-.section-divider {
-    height: 4px;
-    background: linear-gradient(90deg, #B22222, #3D553D);
-    border-radius: 2px;
-    margin: 3rem 0;
-    opacity: 0.7;
-}
-
-.why-choose-card {
-    transition: all 0.3s ease;
-    border: none;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    background: white;
-}
-
-.why-choose-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.why-choose-icon {
-    background: linear-gradient(135deg, #B22222 0%, #8B1A1A 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.download-section {
-    background: linear-gradient(135deg, #3D553D 0%, #2a3a2a 100%);
-    color: white;
-    border-radius: 15px;
-    padding: 3rem 2rem;
-    margin: 3rem 0;
-}
-
-.btn-primary {
-    background-color: #B22222;
-    border-color: #B22222;
-}
-
-.btn-primary:hover {
-    background-color: #8B1A1A;
-    border-color: #8B1A1A;
-}
-
-.btn-outline-primary {
-    color: #B22222;
-    border-color: #B22222;
-}
-
-.btn-outline-primary:hover {
-    background-color: #B22222;
-    border-color: #B22222;
-}
-
-@media (max-width: 991px) {
-    .hero-phone {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    .hero-description {
-        font-size: 1rem;
-    }
-    .floating-icon {
-        display: none;
-    }
-    .carousel-control-prev,
-    .carousel-control-next {
-        display: none;
-    }
-    .hero-content .btn {
-        display: block;
-        width: 100%;
-        margin-bottom: 1rem;
-        margin-right: 0 !important;
-    }
-    .hero-content .btn:last-child {
-        margin-bottom: 0;
-    }
-}
-</style>
-
 <div class="hero-section">
     <div class="floating-icons">
         <i class="fas fa-landmark floating-icon fa-2x"></i>
@@ -296,7 +25,10 @@ layout: default
             </div>
             </div>
             <div class="col-lg-6 text-center hero-phone">
-                <img class="img-fluid screenshot" src="/assets/images/screenshot.png" alt="Mappa Mundi mobile app screenshot showing historical locations map" style="max-width: 300px; animation: fadeInUp 1s ease-out 0.5s both;">
+                <picture>
+                    <source srcset="/assets/images/optimized/screenshot.webp" type="image/webp">
+                    <img class="img-fluid screenshot" src="/assets/images/optimized/screenshot.png" alt="Mappa Mundi mobile app screenshot showing historical locations map" style="max-width: 300px; animation: fadeInUp 1s ease-out 0.5s both;" loading="lazy">
+                </picture>
             </div>
         </div>
     </div>
@@ -317,25 +49,37 @@ layout: default
                     <h3><i class="fas fa-landmark mr-3" style="color: #B22222;"></i>Historic Buildings</h3>
                     <p class="lead">View historic buildings across thousands of towns and cities, anywhere in the United States</p>
                     <p>Explore architectural marvels from different eras, from colonial structures to Art Deco masterpieces. Learn about the stories behind these buildings and their significance in shaping local communities.</p>
-                    <img src="/assets/images/building-screenshot.png" alt="Mappa Mundi app showing historic buildings feature" class="img-fluid">
+                    <picture>
+                        <source srcset="/assets/images/optimized/building-screenshot.webp" type="image/webp">
+                        <img src="/assets/images/optimized/building-screenshot.png" alt="Mappa Mundi app showing historic buildings feature" class="img-fluid" loading="lazy">
+                    </picture>
                 </div>
                 <div class="carousel-item">
                     <h3><i class="fas fa-chess-king mr-3" style="color: #B22222;"></i>Forts and Castles</h3>
                     <p class="lead">Always know the safest location to hide from marauders and vikings with castles and historic fort locations in both Europe and the United States</p>
                     <p>Discover medieval castles, military forts, and defensive structures that once protected communities. Learn about their strategic importance and the historical events that shaped their construction.</p>
-                    <img src="/assets/images/castle-screenshot.png" alt="Mappa Mundi app showing castles and forts feature" class="img-fluid">
+                    <picture>
+                        <source srcset="/assets/images/optimized/castle-screenshot.webp" type="image/webp">
+                        <img src="/assets/images/optimized/castle-screenshot.png" alt="Mappa Mundi app showing castles and forts feature" class="img-fluid" loading="lazy">
+                    </picture>
                 </div>
                 <div class="carousel-item">
                     <h3><i class="fas fa-crosshairs mr-3" style="color: #B22222;"></i>Battles</h3>
                 <p class="lead">Step foot upon the battlefields that shaped the course of history</p>
                     <p>Walk in the footsteps of soldiers and commanders who fought in pivotal battles. Understand the strategies, outcomes, and lasting impact of these historical conflicts on modern society.</p>
-                    <img src="/assets/images/battle-screenshot.png" alt="Mappa Mundi app showing battlefields feature" class="img-fluid">
+                    <picture>
+                        <source srcset="/assets/images/optimized/battle-screenshot.webp" type="image/webp">
+                        <img src="/assets/images/optimized/battle-screenshot.png" alt="Mappa Mundi app showing battlefields feature" class="img-fluid" loading="lazy">
+                    </picture>
                 </div>
                 <div class="carousel-item">
                     <h3><i class="fas fa-map-marker-alt mr-3" style="color: #B22222;"></i>Local Markers</h3>
                     <p class="lead">Immerse yourself in local history and culture with region specific markers</p>
                     <p>Discover hidden gems and local landmarks that tell the unique story of your community. From historical plaques to cultural sites, uncover the rich heritage that makes each location special.</p>
-                    <img src="/assets/images/local-screenshot.png" alt="Mappa Mundi app showing local historical markers feature" class="img-fluid">
+                    <picture>
+                        <source srcset="/assets/images/optimized/local-screenshot.webp" type="image/webp">
+                        <img src="/assets/images/optimized/local-screenshot.png" alt="Mappa Mundi app showing local historical markers feature" class="img-fluid" loading="lazy">
+                    </picture>
             </div>
             </div>
             <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev">
@@ -399,7 +143,7 @@ layout: default
         <p class="mb-4">Available for iOS devices. Download now and begin exploring the rich history that surrounds you.</p>
         <div class="d-flex justify-content-center flex-wrap">
             <a href="https://apps.apple.com/us/app/mappa-mundi/id6451006755" class="mx-2 mb-2">
-                <img alt="Download on the App Store" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website_v2/global/app-store-badge-93cbd8991fcab9bc6a50d3cb78fc1c24340d42af78023005e9ad3fd40445f8e1.png" style="height: 60px;">
+                <img alt="Download on the App Store" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website_v2/global/app-store-badge-93cbd8991fcab9bc6a50d3cb78fc1c24340d42af78023005e9ad3fd40445f8e1.png" style="height: 60px;" loading="lazy">
             </a>
         </div>
     </div>

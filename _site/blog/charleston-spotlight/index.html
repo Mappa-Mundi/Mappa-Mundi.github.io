@@ -7,6 +7,17 @@
   <meta name="geo.region" content="US">
   <meta name="geo.placename" content="United States">
   
+  <!-- Performance Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://kit.fontawesome.com">
+  <link rel="dns-prefetch" href="https://d3nn82uaxijpm6.cloudfront.net">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/assets/main.css" as="style">
+  <link rel="preload" href="/assets/images/optimized/screenshot.webp" as="image" type="image/webp">
+  <link rel="preload" href="/assets/images/optimized/MappaMundiLogo.webp" as="image" type="image/webp">
+  
   <!-- Primary Meta Tags -->
   
   <title>Charleston Historic Sites: Battles, Forts & Landmarks</title>
@@ -48,7 +59,7 @@
   
   
   
-  <meta property="og:url" content="http://localhost:4000/blog/charleston-spotlight/">
+  <meta property="og:url" content="https://mappamundi.us/blog/charleston-spotlight/">
   
   <meta property="og:title" content="Historic Spotlight: Exploring Charleston’s Battles, Forts, and Landmarks | Mappa Mundi">
   
@@ -58,7 +69,7 @@
   
   
   
-  <meta property="og:image" content="http://localhost:4000/assets/images/blogs/charleston-historic-spotlight.jpeg">
+  <meta property="og:image" content="https://mappamundi.us/assets/images/blogs/charleston-historic-spotlight.jpeg">
   
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -67,7 +78,7 @@
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="http://localhost:4000/blog/charleston-spotlight/">
+  <meta property="twitter:url" content="https://mappamundi.us/blog/charleston-spotlight/">
   
   <meta property="twitter:title" content="Historic Spotlight: Exploring Charleston’s Battles, Forts, and Landmarks | Mappa Mundi">
   
@@ -77,11 +88,11 @@
   
   
   
-  <meta property="twitter:image" content="http://localhost:4000/assets/images/blogs/charleston-historic-spotlight.jpeg">
+  <meta property="twitter:image" content="https://mappamundi.us/assets/images/blogs/charleston-historic-spotlight.jpeg">
   
   
   <!-- Canonical URL -->
-  <link rel="canonical" href="http://localhost:4000/blog/charleston-spotlight/" />
+  <link rel="canonical" href="https://mappamundi.us/blog/charleston-spotlight/" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -189,10 +200,25 @@
   <link rel="stylesheet" href="/assets/main.css">
   <link type="application/atom+xml" rel="alternate" href="https://mappamundi.us/feed.xml" title="Mappa Mundi" />
   
-  <!-- JavaScript -->
-  <script src="/assets/javascript/bootstrap/jquery.min.js"></script>
-  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/212d2f84a8.js" crossorigin="anonymous"></script>
+  <!-- JavaScript - Load non-critical scripts asynchronously -->
+  <script src="/assets/javascript/bootstrap/jquery.min.js" defer></script>
+  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/212d2f84a8.js" crossorigin="anonymous" defer></script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
 </head>
 <body><style>
 .navbar-modern {
@@ -838,7 +864,7 @@ Covering much of the city’s peninsula, the district is home to 18th and 19th-c
   "@type": "BlogPosting",
   "headline": "Historic Spotlight: Exploring Charleston’s Battles, Forts, and Landmarks",
   "description": "Step back in time with Charleston’s most significant historic sites — from Revolutionary War battlefields to Civil War forts and enduring landmarks.",
-  "image": "http://localhost:4000/assets/images/blogs/charleston-historic-spotlight.jpeg",
+  "image": "https://mappamundi.us/assets/images/blogs/charleston-historic-spotlight.jpeg",
   "author": {
     "@type": "Person",
     "name": "Mappa Mundi Team"
@@ -848,14 +874,14 @@ Covering much of the city’s peninsula, the district is home to 18th and 19th-c
     "name": "Mappa Mundi",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:4000/assets/images/MappaMundiLogo.png"
+      "url": "https://mappamundi.us/assets/images/MappaMundiLogo.png"
     }
   },
   "datePublished": "2024-01-05T10:00:00-07:00",
   "dateModified": "2024-01-05T10:00:00-07:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:4000/blog/charleston-spotlight/"
+    "@id": "https://mappamundi.us/blog/charleston-spotlight/"
   },
   "keywords": "Charleston history, Civil War, Revolutionary War, forts, battlefields, historic buildings, historical locations, historic buildings, battlefields, castles, forts, local history, historical discovery app, history app, mobile app, iOS, United States, Europe, historic landmarks, ancient ruins, historical walking tours"
 }

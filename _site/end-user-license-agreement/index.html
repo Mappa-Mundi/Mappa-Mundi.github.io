@@ -7,6 +7,17 @@
   <meta name="geo.region" content="US">
   <meta name="geo.placename" content="United States">
   
+  <!-- Performance Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://kit.fontawesome.com">
+  <link rel="dns-prefetch" href="https://d3nn82uaxijpm6.cloudfront.net">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/assets/main.css" as="style">
+  <link rel="preload" href="/assets/images/optimized/screenshot.webp" as="image" type="image/webp">
+  <link rel="preload" href="/assets/images/optimized/MappaMundiLogo.webp" as="image" type="image/webp">
+  
   <!-- Primary Meta Tags -->
   
   <title>Mappa Mundi - Find Historic Locations Near You | Historical Discovery App</title>
@@ -31,7 +42,7 @@
   <meta property="og:type" content="website">
   
   
-  <meta property="og:url" content="http://localhost:4000/end-user-license-agreement/">
+  <meta property="og:url" content="https://mappamundi.us/end-user-license-agreement/">
   
   <meta property="og:title" content="Mappa Mundi - Find Historic Locations Near You">
   
@@ -41,7 +52,7 @@
   
   
   
-  <meta property="og:image" content="http://localhost:4000/assets/images/MappaMundiLogo.png">
+  <meta property="og:image" content="https://mappamundi.us/assets/images/MappaMundiLogo.png">
   
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -50,7 +61,7 @@
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="http://localhost:4000/end-user-license-agreement/">
+  <meta property="twitter:url" content="https://mappamundi.us/end-user-license-agreement/">
   
   <meta property="twitter:title" content="Mappa Mundi - Find Historic Locations Near You">
   
@@ -60,11 +71,11 @@
   
   
   
-  <meta property="twitter:image" content="http://localhost:4000/assets/images/MappaMundiLogo.png">
+  <meta property="twitter:image" content="https://mappamundi.us/assets/images/MappaMundiLogo.png">
   
   
   <!-- Canonical URL -->
-  <link rel="canonical" href="http://localhost:4000/end-user-license-agreement/" />
+  <link rel="canonical" href="https://mappamundi.us/end-user-license-agreement/" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -172,10 +183,25 @@
   <link rel="stylesheet" href="/assets/main.css">
   <link type="application/atom+xml" rel="alternate" href="https://mappamundi.us/feed.xml" title="Mappa Mundi" />
   
-  <!-- JavaScript -->
-  <script src="/assets/javascript/bootstrap/jquery.min.js"></script>
-  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/212d2f84a8.js" crossorigin="anonymous"></script>
+  <!-- JavaScript - Load non-critical scripts asynchronously -->
+  <script src="/assets/javascript/bootstrap/jquery.min.js" defer></script>
+  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/212d2f84a8.js" crossorigin="anonymous" defer></script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
 </head>
 <body><style>
 .navbar-modern {

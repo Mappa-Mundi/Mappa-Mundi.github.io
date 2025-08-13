@@ -6,6 +6,17 @@
   <meta name="geo.region" content="US">
   <meta name="geo.placename" content="United States">
   
+  <!-- Performance Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://kit.fontawesome.com">
+  <link rel="dns-prefetch" href="https://d3nn82uaxijpm6.cloudfront.net">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/assets/main.css" as="style">
+  <link rel="preload" href="/assets/images/optimized/screenshot.webp" as="image" type="image/webp">
+  <link rel="preload" href="/assets/images/optimized/MappaMundiLogo.webp" as="image" type="image/webp">
+  
   <!-- Primary Meta Tags -->
   {% if page.seo_title %}
   <title>{{ page.seo_title }}</title>
@@ -212,8 +223,23 @@
   <link rel="stylesheet" href="/assets/main.css">
   <link type="application/atom+xml" rel="alternate" href="https://mappamundi.us/feed.xml" title="Mappa Mundi" />
   
-  <!-- JavaScript -->
-  <script src="/assets/javascript/bootstrap/jquery.min.js"></script>
-  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/212d2f84a8.js" crossorigin="anonymous"></script>
+  <!-- JavaScript - Load non-critical scripts asynchronously -->
+  <script src="/assets/javascript/bootstrap/jquery.min.js" defer></script>
+  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/212d2f84a8.js" crossorigin="anonymous" defer></script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
 </head>
