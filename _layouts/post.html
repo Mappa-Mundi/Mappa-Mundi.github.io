@@ -158,42 +158,6 @@ layout: default
     text-decoration: none;
 }
 
-.blog-sidebar {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.blog-sidebar h4 {
-    color: #3D553D;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #DBC9B0;
-}
-
-.blog-sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.blog-sidebar li {
-    margin: 0.5rem 0;
-}
-
-.blog-sidebar a {
-    color: #2a3a2a;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
-
-.blog-sidebar a:hover {
-    color: #B22222;
-    text-decoration: none;
-}
 
 .blog-navigation {
     display: flex;
@@ -253,14 +217,11 @@ layout: default
 }
 
 @media (min-width: 992px) {
-    .blog-layout {
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
+.blog-content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
 }
 </style>
 
@@ -289,92 +250,48 @@ layout: default
     </div>
   </div>
 
-  <div class="blog-layout">
-    <main class="blog-main">
-      <!-- Content -->
-      <div class="blog-content" itemprop="articleBody">
-        {{ content }}
-      </div>
+  <div class="blog-content-wrapper">
+    <!-- Content -->
+    <div class="blog-content" itemprop="articleBody">
+      {{ content }}
+    </div>
 
-      <!-- Tags -->
-      {% if page.tags %}
-      <div class="blog-tags">
-        {% for tag in page.tags %}
-        <a href="/blog/tag/{{ tag | slugify }}/" class="blog-tag" itemprop="keywords">{{ tag }}</a>
-        {% endfor %}
-      </div>
+    <!-- Tags -->
+    {% if page.tags %}
+    <div class="blog-tags">
+      {% for tag in page.tags %}
+      <span class="blog-tag" itemprop="keywords">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Call to Action -->
+    <div class="blog-cta">
+      <h3>Explore Historic Sites Near You!</h3>
+      <p>Discover this historic location and thousands more with the Mappa Mundi app. Get detailed information, and photos about historical sites near you.</p>
+      <a href="https://apps.apple.com/us/app/mappa-mundi/id6451006755" class="btn" target="_blank" rel="noopener">
+        {% include apple-logo.svg %} Download for iOS
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="blog-navigation">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="blog-nav-link prev">
+        <small>← Previous Post</small><br>
+        <strong>{{ page.previous.title }}</strong>
+      </a>
+      {% else %}
+      <div></div>
       {% endif %}
-
-      <!-- Call to Action -->
-      <div class="blog-cta">
-        <h3>Explore Historic Sites Near You!</h3>
-        <p>Discover this historic location and thousands more with the Mappa Mundi app. Get detailed information, and photos about historical sites near you.</p>
-        <a href="https://apps.apple.com/app/mappa-mundi/id1234567890" class="btn" target="_blank" rel="noopener">
-          {% include apple-logo.svg %} Download for iOS
-        </a>
-      </div>
-
-      <!-- Navigation -->
-      <nav class="blog-navigation">
-        {% if page.previous.url %}
-        <a href="{{ page.previous.url | relative_url }}" class="blog-nav-link prev">
-          <small>← Previous Post</small><br>
-          <strong>{{ page.previous.title }}</strong>
-        </a>
-        {% else %}
-        <div></div>
-        {% endif %}
-        
-        {% if page.next.url %}
-        <a href="{{ page.next.url | relative_url }}" class="blog-nav-link next">
-          <small>Next Post →</small><br>
-          <strong>{{ page.next.title }}</strong>
-        </a>
-        {% endif %}
-      </nav>
-    </main>
-
-    <!-- Sidebar -->
-    <aside class="blog-sidebar">
-      <!-- Search -->
-      <div class="sidebar-section">
-        <h4>🔍 Search Posts</h4>
-        <input type="text" id="blog-search" placeholder="Search articles..." 
-               style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 1rem;">
-        <div id="search-results"></div>
-      </div>
-
-      <!-- Recent Posts -->
-      <div class="sidebar-section">
-        <h4>📖 Recent Posts</h4>
-        <ul>
-          {% for post in site.posts limit:5 %}
-          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <!-- Categories -->
-      <div class="sidebar-section">
-        <h4>📂 Categories</h4>
-        <ul>
-          {% for category in site.blog_categories %}
-          <li><a href="/blog/category/{{ category.slug }}/">{{ category.name }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <!-- Popular Tags -->
-      <div class="sidebar-section">
-        <h4>🏷️ Popular Tags</h4>
-        <div>
-          {% assign sorted_tags = site.tags | sort %}
-          {% for tag in sorted_tags limit:10 %}
-          <a href="/blog/tag/{{ tag[0] | slugify }}/" class="blog-tag">{{ tag[0] }}</a>
-          {% endfor %}
-        </div>
-      </div>
-    </aside>
+      
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="blog-nav-link next">
+        <small>Next Post →</small><br>
+        <strong>{{ page.next.title }}</strong>
+      </a>
+      {% endif %}
+    </nav>
   </div>
 </article>
 
@@ -408,45 +325,3 @@ layout: default
 }
 </script>
 
-<!-- Simple search functionality -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('blog-search');
-    const searchResults = document.getElementById('search-results');
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            
-            if (query.length < 3) {
-                searchResults.innerHTML = '';
-                return;
-            }
-            
-            // Simple client-side search (you might want to implement a more sophisticated solution)
-            const posts = [
-                {% for post in site.posts %}
-                {
-                    title: {{ post.title | jsonify }},
-                    url: {{ post.url | relative_url | jsonify }},
-                    content: {{ post.content | strip_html | jsonify }}
-                }{% unless forloop.last %},{% endunless %}
-                {% endfor %}
-            ];
-            
-            const results = posts.filter(post => 
-                post.title.toLowerCase().includes(query) || 
-                post.content.toLowerCase().includes(query)
-            ).slice(0, 5);
-            
-            if (results.length > 0) {
-                searchResults.innerHTML = '<ul>' + 
-                    results.map(post => `<li><a href="${post.url}">${post.title}</a></li>`).join('') + 
-                    '</ul>';
-            } else {
-                searchResults.innerHTML = '<p style="font-size: 0.9rem; color: #666;">No results found</p>';
-            }
-        });
-    }
-});
-</script>

@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>http://localhost:4000/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,37 +14,7 @@
   <url>
     <loc>http://localhost:4000/404/</loc>
     
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
-    
-    
-    <changefreq>weekly</changefreq>
-    
-    
-    <priority>0.8</priority>
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/about/</loc>
-    
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
-    
-    
-    <changefreq>weekly</changefreq>
-    
-    
-    <priority>0.8</priority>
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/blog/</loc>
-    
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -59,22 +29,7 @@
   <url>
     <loc>http://localhost:4000/end-user-license-agreement/</loc>
     
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
-    
-    
-    <changefreq>weekly</changefreq>
-    
-    
-    <priority>0.8</priority>
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/features/</loc>
-    
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -89,7 +44,7 @@
   <url>
     <loc>http://localhost:4000/</loc>
     
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -106,7 +61,7 @@
   <url>
     <loc>http://localhost:4000/privacy-policy/</loc>
     
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -125,7 +80,7 @@
   <url>
     <loc>http://localhost:4000/README-BLOG/</loc>
     
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -140,7 +95,7 @@
   <url>
     <loc>http://localhost:4000/feed.xml</loc>
     
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -155,7 +110,7 @@
   <!-- Blog Posts -->
   
   <url>
-    <loc>http://localhost:4000/blog/mappa-mundi-2025-update/</loc>
+    <loc>http://localhost:4000/mappa-mundi-2025-update/</loc>
     
     <lastmod>2025-01-05T10:00:00-07:00</lastmod>
     
@@ -164,7 +119,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:4000/blog/charleston-spotlight/</loc>
+    <loc>http://localhost:4000/charleston-spotlight/</loc>
     
     <lastmod>2024-01-05T10:00:00-07:00</lastmod>
     
@@ -176,7 +131,7 @@
   <!-- Blog Index -->
   <url>
     <loc>http://localhost:4000/blog/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -185,21 +140,21 @@
   
   <url>
     <loc>http://localhost:4000/blog/category/historic-spotlights/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/category/travel-guides/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/category/app-updates/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -210,84 +165,84 @@
   
   <url>
     <loc>http://localhost:4000/blog/tag/charleston-history/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/civil-war/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/europe-expansion/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/revolutionary-war/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/app-update/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/battlefields/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/battles/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/castles/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/cathedrals/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/forts/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/historic-buildings/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/blog/tag/medieval-history/</loc>
-    <lastmod>2025-08-09T23:11:11-06:00</lastmod>
+    <lastmod>2025-10-12T20:30:49-06:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
